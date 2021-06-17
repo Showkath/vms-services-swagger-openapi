@@ -1,0 +1,20 @@
+####### Please do not change this file. This will impact application urls/setup.
+####### IT customozation configuration file for Honeycomb
+---
+environments:
+  - development:
+      applications:
+        - name: vms-services
+          routes:
+            - route: vms-servicesd.cfapps.sap.hana.ondemand.com
+  - test:
+      applications:
+        - name: vms-services
+          routes:
+            - route: vms-servicest.cfapps.eu10.hana.ondemand.com
+
+  - production:
+      applications:
+        - name: vms-services
+          routes:
+            - route: vms-services.cfapps.eu10.hana.ondemand.com

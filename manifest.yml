@@ -1,0 +1,25 @@
+---
+applications:
+  - name: vms-services
+    timeout: 600
+    random-route: true
+    memory: 2G
+    path: ./target/vms-services-0.0.1-SNAPSHOT.jar
+    services:      
+      - vmswebx-connectivity-instance
+      - vmswebx-destination-instance
+      - vmswebx-xsuaa-service
+      - vmsbackend-logs-srv-instance
+      - vmsbackend-db
+    env:
+      # target java 11
+      JBP_CONFIG_OPEN_JDK_JRE: '{ "jre": { version: 11.+ } }'            
+      config.reload: true
+      config.delete: true	  
+      config.timeoutInSeconds: 180
+      config.deleteFromObjectStore: 30
+      config.retryCount: 3
+      config.retryInterval: 10
+      config.waitTimeInMinutes: 60
+      config.corePoolSize: 20
+      config.maxPoolSize: 1000	    
